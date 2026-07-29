@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Yield Calculator</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; padding: 20px; max-width: 500px; margin: 0 auto; background: #f9fafb; }
+    .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+    h1 { font-size: 1.5rem; margin-top: 0; }
+    .row { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #eee; }
+    .row input[type="text"], .row input[type="number"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px; }
+    .row input[type="checkbox"] { transform: scale(1.5); margin-right: 5px; cursor: pointer; }
+    .btn { padding: 10px 15px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    .btn-add { background: #3b82f6; color: white; width: 100%; margin-bottom: 20px; }
+    .btn-remove { background: #ef4444; color: white; padding: 8px 12px; }
+    .btn-calc { background: #10b981; color: white; width: 100%; font-size: 1.1rem; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+    .form-group input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+    #result-box { display: none; background: #e0f2fe; padding: 15px; border-radius: 8px; border: 1px solid #bae6fd; }
+    .warning { color: #ef4444; font-size: 0.9rem; font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Yield Calculator</h1>
+    
+    <div class="form-group">
+      <label>Raw Material Purchase Rate (₹ per Qtl)</label>
+      <input type="number" id="purchaseRate" placeholder="e.g. 5000">
+    </div>
+    
+    <div class="form-group">
+      <label>Expenses (₹ per Qtl)</label>
+      <input type="number" id="expenses" placeholder="e.g. 300">
+    </div>
+  </div>
+
+  <div class="card" id="fields-container">
+    <p style="margin-top:0; font-size: 0.9rem; color: #666;">Tick the checkbox to include an item in the calculation.</p>
+    <!-- Dynamic rows will be injected here -->
+  </div>
+
+  <button class="btn btn-add" onclick="addRow()">+ Add Optional Field</button>
+  <button class="btn btn-calc" onclick="calculate()">Calculate Profit</button>
+
+  <div class="card" id="result-box" style="margin-top: 20px;">
+    <h3>Results</h3>
+    <p>Total Included Yield: <span id="yield-total">0</span>%</p>
+    <div id="yield-warning" class="warning"></div>
+    <p>Final Output Value: ₹<span id="final-output">0</span></p>
+    <p><strong>Net Profit/Loss: ₹<span id="net-profit">0</span></strong></p>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
