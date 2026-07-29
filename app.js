@@ -109,25 +109,28 @@ function createRowElement(id, name, rate, yieldPct, unit, checked) {
   const isKg = unit === 'kg' ? 'selected' : '';
   
   div.innerHTML = `
-    <input type="checkbox" id="check-${id}" ${isChecked} onchange="saveState()">
-    <input type="text" id="name-${id}" value="${name}" placeholder="Name" oninput="saveState()">
+    <div class="row-top">
+      <input type="checkbox" id="check-${id}" ${isChecked} onchange="saveState()">
+      <input type="text" id="name-${id}" value="${name}" placeholder="Item Name" oninput="saveState()">
+      <button class="btn btn-remove" onclick="removeRow('${id}')" title="Remove">X</button>
+    </div>
     
-    <div class="input-wrapper">
-      <span>₹</span>
-      <input type="number" id="rate-${id}" value="${rate}" placeholder="Rate" oninput="saveState()">
+    <div class="row-bottom">
+      <div class="input-wrapper">
+        <span>₹</span>
+        <input type="number" id="rate-${id}" value="${rate}" placeholder="Rate" oninput="saveState()">
+      </div>
+
+      <select id="unit-${id}" class="row-unit" onchange="saveState()">
+        <option value="quintal" ${isQtl}>Qtl</option>
+        <option value="kg" ${isKg}>Kg</option>
+      </select>
+
+      <div class="input-wrapper right">
+        <input type="number" id="yield-${id}" value="${yieldPct}" placeholder="Yield" oninput="saveState()">
+        <span>%</span>
+      </div>
     </div>
-
-    <select id="unit-${id}" class="row-unit" onchange="saveState()">
-      <option value="quintal" ${isQtl}>Qtl</option>
-      <option value="kg" ${isKg}>Kg</option>
-    </select>
-
-    <div class="input-wrapper right">
-      <input type="number" id="yield-${id}" value="${yieldPct}" placeholder="Yield" oninput="saveState()">
-      <span>%</span>
-    </div>
-
-    <button class="btn btn-remove" onclick="removeRow('${id}')" title="Remove">X</button>
   `;
   container.appendChild(div);
 }
