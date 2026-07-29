@@ -3,7 +3,7 @@
 > **⚠️ WORK IN PROGRESS:** This application is currently under active development. Please be aware that **there are known calculation bugs**. Do not use this tool for official financial, business, or purchasing decisions at this time.
 
 ## About
-The Yield Calculator App is a client-side Progressive Web App (PWA) designed to calculate the yield, output value, and net profit of processing raw materials (such as Toor Dal). It runs entirely in the user's browser, meaning calculations are instant and require no backend server.
+The Yield Calculator App is a client-side Web App designed to calculate the yield, output value, and net profit of processing raw materials (such as Toor Dal). It runs entirely in the user's browser, meaning calculations are instant and require no backend server.
 
 ## Features
 * **Custom Inputs:** Dynamically add or remove optional fields as needed.
