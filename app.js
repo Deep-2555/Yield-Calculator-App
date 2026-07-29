@@ -74,3 +74,30 @@ function calculate() {
 
 // Run init on load
 init();
+// PWA Install Button Logic
+let deferredPrompt;
+const installBtn = document.getElementById('installAppBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome from showing the mini-infobar automatically
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI to notify the user they can install the PWA
+  installBtn.style.display = 'block';
+});
+
+installBtn.addEventListener('click', async () => {
+  if (deferredPrompt) {
+    // Show the install prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      console.log('User accepted the install prompt');
+      installBtn.style.display = 'none'; // Hide button after install
+    }
+    // Clear the deferred prompt variable
+    deferredPrompt = null;
+  }
+});
