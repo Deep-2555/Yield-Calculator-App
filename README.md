@@ -8,7 +8,7 @@ The Yield Calculator App is a client-side Web App designed to calculate the yiel
 ## Features
 * **Custom Inputs:** Dynamically add or remove optional fields as needed.
 * **Selective Calculation:** Use checkboxes to selectively include or exclude specific output items from the final calculation.
-* **Progressive Web App (PWA):** Includes a custom install button. Can be saved to your mobile Home Screen and used just like a native app.
+* **Web App :** Includes a custom install button. Can be saved to your mobile Home Screen and used just like a native app.
 * **Local Processing:** 100% client-side JavaScript architecture.
 
 ## Known Issues 🐛
