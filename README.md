@@ -16,7 +16,7 @@ The Yield Calculator App is a client-side Progressive Web App (PWA) designed to 
 * **WIP UI:** Some interface elements may change in future updates.
 
 ## How to Use
-1. Visit the live site: `[Insert your deep-2555.github.io link here]`
+1. Visit the live site: `https://deep-2555.github.io/Yield-Calculator-App/`
 2. Enter the raw material **Purchase Rate** and **Expenses**.
 3. Toggle the checkboxes for the items you want to include (e.g., Fatka, Sava No., Chunni).
 4. Use the **+ Add Optional Field** button to add custom output variants.
